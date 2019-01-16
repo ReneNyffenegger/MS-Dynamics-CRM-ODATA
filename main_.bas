@@ -5,14 +5,13 @@ const ms_dynamics_service_url_root = "https://odata-service/"
 sub main() ' {
 
     dim entityTypeName as string
-    entityTypeName = "im_financialdata"
+    entityTypeName = "account"
 
     dim odataService as new OData_Service
     odataService.init(ms_dynamics_service_url_root & "$metadata")
   
     dim odataEntityType as OData_EntityType
     set odataEntityType = odataService.EntityType(entityTypeName)
-
 
     dim f as integer
     f = freeFile
