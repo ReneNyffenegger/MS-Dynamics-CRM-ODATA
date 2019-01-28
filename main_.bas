@@ -2,10 +2,8 @@ option explicit
 
 const ms_dynamics_service_url_root = "https://odata-service/"
 
-sub main() ' {
+sub showEntityType(entityTypeName as string) ' {
 
-    dim entityTypeName as string
-    entityTypeName = "account"
 
     dim odataService as new OData_Service
     odataService.init(ms_dynamics_service_url_root & "$metadata")
@@ -20,7 +18,7 @@ sub main() ' {
     
     dim prop as OData_Property
     for each prop in odataEntityType.properties ' {
-        print# f,   prop.name & " - " & prop.type_
+        print# f,   prop.name & " - " & prop.type_ & " - " & prop.description
     next prop ' }
 
     close# f

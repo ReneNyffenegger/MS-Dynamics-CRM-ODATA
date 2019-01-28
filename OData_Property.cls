@@ -29,3 +29,18 @@ function type_ as string ' {
  '
     type_ = property_.getAttribute("Type")
 end function ' }
+
+function description as string ' {
+
+   dim xmlAnnotation as msxml2.IXMLDOMElement
+   set xmlAnnotation = property_.selectSingleNode("./Annotation[@Term='Org.OData.Core.V1.Description']")
+   
+
+   if xmlAnnotation is nothing then
+      description = ""
+      exit function
+   end if
+
+   description = xmlAnnotation.getAttribute("String")
+
+end function ' }
